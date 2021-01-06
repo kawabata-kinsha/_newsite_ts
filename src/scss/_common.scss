@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+/* -----------------------------------
+	common
+-------------------------------------- */
+html,
+body {
+	//height: 100%;
+
+	//@include setPrefix(user-select,none);
+}
+body {
+	position: relative;
+	font-family: 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	font-size: 3.5vw;
+	line-height: 1;
+	color: #22252c;
+	background-color: #fff;
+	@include setPrefix(font-feature-settings, "palt");
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+

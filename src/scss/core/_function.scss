@@ -1,0 +1,9 @@
+@charset 'utf-8';
+
+@function ratio($value01,$value02) {
+	@return $value01 / $value02 * 100%;
+}
+
+@function ratio2000($value01,$value02:2000) {
+	@return $value01 / $value02 * 100%;
+}

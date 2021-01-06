@@ -1,0 +1,46 @@
+@charset 'UTF-8';
+/* -----------------------------------
+	base
+-------------------------------------- */
+html,
+body {
+	//height: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+header,
+nav,
+footer,
+article,
+section,
+div,
+aside,
+ul,
+li,
+dl,
+dt,
+dd,
+ol,
+a,
+figure,
+input[type='text'],
+textarea{
+	@include setPrefix(box-sizing, border-box);
+}
+
+
+// [data-ruby] {
+// 	position: relative;
+// }
+// [data-ruby]::before {
+// 	content: attr(data-ruby);
+// 	position: absolute;
+// 	width: 200%;
+// 	text-align: center;
+// 	top: -1.5em;
+// 	left: -50%;
+// 	margin: auto;
+// 	font-size: 10px;
+// }

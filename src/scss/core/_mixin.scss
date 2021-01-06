@@ -1,0 +1,85 @@
+@charset 'utf-8';
+
+@mixin clearfix{
+	&::after {
+		display: table;
+		clear: both;
+		content: '';
+	}
+}
+
+@mixin setPrefix($property, $value){
+	@each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+		#{$prefix}#{$property}: $value;
+	}
+}
+
+@mixin keyframes($name){
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+	@-ms-keyframes #{$name} {
+		@content;
+	}
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin animation($animation-name...) {
+	-webkit-animation: $animation-name;
+	   -moz-animation: $animation-name;
+	    -ms-animation: $animation-name;
+	        animation: $animation-name;
+
+	-webkit-animation-fill-mode: both;
+	   -moz-animation-fill-mode: both;
+	    -ms-animation-fill-mode: both;
+	        animation-fill-mode: both;
+}
+
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	   -moz-transition: $transition;
+	    -ms-transition: $transition;
+	     -o-transition: $transition;
+	        transition: $transition;
+}
+
+@mixin pseudo-element($content: '', $position: absolute, $display: block) {
+	position: $position;
+	display: $display;
+	content: $content;
+}
+
+@mixin img-repl($width, $height, $image) {
+	font-size: 0;
+	overflow: hidden;
+	width: $width;
+	height: $height;
+	white-space: nowrap;
+	text-indent: 100%;
+	background: url($image) 0 0 no-repeat;
+}
+
+@mixin text-truncate {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+$breakpoint: 700px;
+
+@mixin pc {
+  @media (min-width: ($breakpoint)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media (max-width: ($breakpoint)) {
+    @content;
+  }
+}
