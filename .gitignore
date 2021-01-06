@@ -3,4 +3,3 @@
 www/assets/js/*.js
 package-lock.json
 node_modules/
-typings/
