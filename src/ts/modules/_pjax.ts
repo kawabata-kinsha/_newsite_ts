@@ -50,7 +50,7 @@ export class Pjax {
 		this.beforeFetch();
 		setTimeout(() => {
 			this.chageContents(this.getTarget(e));
-		}, 1000)
+		}, this.delaytime)
 	}
 
 	chageContents(path: string){
