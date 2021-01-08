@@ -2,17 +2,15 @@ export class Pjax {
 	$window: JQuery<Window>;
 	$document: JQuery<Document>;
 	$link: JQuery;
-	$targetWrap: JQuery;
 	link: string;
 	target: string;
 	delaytime: number;
 
 
-	constructor(link: string, targetWrap: string, target: string, delaytime: number){
+	constructor(link: string, target: string, delaytime: number){
 		this.$window = $(window);
 		this.$document = $(document);
 		this.$link = $(link);
-		this.$targetWrap = $(targetWrap);
 		this.link = link;
 		this.target = target;
 		this.delaytime = delaytime;
@@ -54,11 +52,25 @@ export class Pjax {
 	}
 
 	chageContents(path: string){
-		this.$targetWrap.load(path + ' ' + this.target,(response: string) => {
-			const nextTitle = response.match(/<title>[\s\S]*?<\/title>/i)[0].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+		const request = new XMLHttpRequest();
+		request.overrideMimeType("text/xml");
+		request.open('GET', path);
+		request.onload = () => {
+			const nextTitle = request.response.match(/<title>[\s\S]*?<\/title>/i)[0].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+			const target = document.querySelector(this.target);
+			const nextContents = request.responseXML.querySelector(this.target)
 			document.title = nextTitle;
+			target.innerHTML= nextContents.innerHTML;
+
 			this.afterFetch();
-		});
+        }
+		request.send();
+
+		// this.$targetWrap.load(path + ' ' + this.target,(response: string) => {
+		// 	const nextTitle = response.match(/<title>[\s\S]*?<\/title>/i)[0].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+		// 	document.title = nextTitle;
+		// 	this.afterFetch();
+		// });
 	}
 
 	beforeFetch(){
