@@ -5,15 +5,18 @@ export class Pjax {
 	$targetWrap: JQuery;
 	link: string;
 	target: string;
+	delaytime: number;
 
 
-	constructor(link: string, targetWrap: string, target: string){
+	constructor(link: string, targetWrap: string, target: string, delaytime: number){
 		this.$window = $(window);
 		this.$document = $(document);
 		this.$link = $(link);
 		this.$targetWrap = $(targetWrap);
 		this.link = link;
 		this.target = target;
+		this.delaytime = delaytime;
+		this.init();
 	}
 
 	init(){
@@ -34,32 +37,34 @@ export class Pjax {
 		if(path === ''){
 			console.log(false);
 		}else{
-			this.onFetch();
+			this.beforeFetch();
 
 			history.pushState(this.pushStateObj(path), title, path);
 			setTimeout(() => {
 				this.chageContents(path);
-			}, 1000);	
+			}, this.delaytime);	
 		}
 	}
 
 	onPopState(e: any){
-		this.onFetch();
+		this.beforeFetch();
 		setTimeout(() => {
 			this.chageContents(this.getTarget(e));
 		}, 1000)
 	}
 
-	onFetch(){
-		$(this.$targetWrap).fadeOut();
-	}
-
-	chageContents(path: string){	
+	chageContents(path: string){
 		this.$targetWrap.load(path + ' ' + this.target,(response: string) => {
 			const nextTitle = response.match(/<title>[\s\S]*?<\/title>/i)[0].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
 			document.title = nextTitle;
-			$(this.$targetWrap).fadeIn();
+			this.afterFetch();
 		});
+	}
+
+	beforeFetch(){
+	}
+
+	afterFetch(){
 	}
 
 	getCurrentPath(){
