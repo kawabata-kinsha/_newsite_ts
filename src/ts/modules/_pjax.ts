@@ -18,6 +18,10 @@ export class Pjax {
 	}
 
 	init(){
+		this.$window.on('load', () => {
+			this.onLoad();
+		});
+
 		this.$document.on('click', this.link, (e)=>{
 			this.onClick(e, e.currentTarget);
 		});
@@ -39,7 +43,7 @@ export class Pjax {
 
 			history.pushState(this.pushStateObj(path), title, path);
 			setTimeout(() => {
-				this.chageContents(path);
+				this.ajax(path);
 			}, this.delaytime);	
 		}
 	}
@@ -47,36 +51,23 @@ export class Pjax {
 	onPopState(e: any){
 		this.beforeFetch();
 		setTimeout(() => {
-			this.chageContents(this.getTarget(e));
+			this.ajax(this.getTarget(e));
 		}, this.delaytime)
 	}
 
-	chageContents(path: string){
+	ajax(path: string){
 		const request = new XMLHttpRequest();
 		request.overrideMimeType("text/xml");
 		request.open('GET', path);
 		request.onload = () => {
 			const nextTitle = request.response.match(/<title>[\s\S]*?<\/title>/i)[0].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-			const target = document.querySelector(this.target);
 			const nextContents = request.responseXML.querySelector(this.target)
 			document.title = nextTitle;
-			target.innerHTML= nextContents.innerHTML;
+			document.querySelector(this.target).innerHTML = nextContents.innerHTML;
 
 			this.afterFetch();
         }
 		request.send();
-
-		// this.$targetWrap.load(path + ' ' + this.target,(response: string) => {
-		// 	const nextTitle = response.match(/<title>[\s\S]*?<\/title>/i)[0].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-		// 	document.title = nextTitle;
-		// 	this.afterFetch();
-		// });
-	}
-
-	beforeFetch(){
-	}
-
-	afterFetch(){
 	}
 
 	getCurrentPath(){
@@ -92,4 +83,11 @@ export class Pjax {
 		var state = e.originalEvent.state;
 		return state.path;
 	}
+
+	onLoad(){}
+	
+	beforeFetch(){}
+
+	afterFetch(){}
+	
 }
