@@ -1,6 +1,6 @@
 export class ShowElementOnScroll {
     $el: JQuery;
-    $window: JQuery;
+    $window: JQuery<Window>;
     position: number;
     classname: string;
 

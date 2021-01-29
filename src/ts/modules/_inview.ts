@@ -1,6 +1,6 @@
 export class Inview{
     $el: JQuery;
-    $window: JQuery;
+    $window: JQuery<Window>;
     windowHeight: number;
     num: number;
     className: string;
