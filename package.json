@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass src/scss/:www/assets/css/ --style compressed --no-source-map ",
     "ts": "webpack --mode production",
-    "watch:sass": "sass src/scss/:www/assets/css/ --style compressed --watch",
+    "watch:sass": "sass src/scss/:www/assets/css/ --style expanded --watch",
     "watch:ts": "webpack --watch",
     "clean:css": "rimraf www/assets/css && mkdir -p www/assets/css",
     "clean:js": "rimraf www/assets/js && mkdir -p www/assets/js",

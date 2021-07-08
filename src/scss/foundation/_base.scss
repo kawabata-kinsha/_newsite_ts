@@ -1,6 +1,9 @@
 @charset 'UTF-8';
+
+@use "../core/mixin/index" as mx;
+@use "../core/function/index" as fx;
 /* -----------------------------------
-	common
+	base
 -------------------------------------- */
 html,
 body {
@@ -15,11 +18,11 @@ body {
 	line-height: 1;
 	color: #22252c;
 	background-color: #fff;
-	@include setPrefix(font-feature-settings, "palt");
+	@include mx.setPrefix(font-feature-settings, "initial");
+	//@include mixin.setPrefix(font-feature-settings, "palt");
 }
 
 img {
-	width: 100%;
+	width: fx.ratio(100,100);
 	height: auto;
 }
-

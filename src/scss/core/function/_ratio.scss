@@ -1,0 +1,16 @@
+@charset 'utf-8';
+@use 'sass:math';
+/* -----------------------------------
+	ratio
+-------------------------------------- */
+@function ratio($value01,$value02) {
+	@return math.div($value01, $value02) * 100%;
+}
+
+@function ratio2000($value01,$value02:2000) {
+	@return math.div($value01, $value02) * 100%;
+}
+
+@function ratio1125($value01,$value02:1125) {
+	@return math.div($value01, $value02) * 100%;
+}

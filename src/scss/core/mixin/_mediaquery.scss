@@ -1,0 +1,17 @@
+@charset 'utf-8';
+/* -----------------------------------
+	mediaquery
+-------------------------------------- */
+$breakpoint: 700px;
+
+@mixin pc {
+  @media (min-width: ($breakpoint)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: ($breakpoint)) {
+    @content;
+  }
+}
