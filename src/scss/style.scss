@@ -1,3 +1,6 @@
 @charset 'utf-8';
-@use "./foundation/index"
 
+@use "./foundation/index";
+@use "./layout/header";
+@use "./layout/footer";
+@use "./layout/gnav";

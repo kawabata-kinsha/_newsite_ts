@@ -2,6 +2,7 @@
 
 @use "../core/mixin/index" as mx;
 @use "../core/function/index" as fx;
+@use "../core/variable/index" as var;
 /* -----------------------------------
 	base
 -------------------------------------- */
@@ -25,4 +26,31 @@ body {
 img {
 	width: fx.ratio(100,100);
 	height: auto;
+}
+
+/* -----------------------------------
+	box-sizing
+-------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+header,
+nav,
+footer,
+article,
+section,
+div,
+aside,
+ul,
+li,
+dl,
+dt,
+dd,
+ol,
+a,
+figure,
+input[type='text'],
+textarea{
+	@include mx.setPrefix(box-sizing, border-box);
 }
