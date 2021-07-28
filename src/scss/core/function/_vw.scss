@@ -1,0 +1,18 @@
+@charset 'utf-8';
+@use 'sass:math';
+@use "./strip-unit" as fx;
+/* -----------------------------------
+	vw
+-------------------------------------- */
+@function vw($px, $base) {
+	$value: $px;
+
+	@if (unit($px) != 'px') {
+	  @warn 'specify the pixel.';
+	  @return $value;
+	}
+
+	$value: (math.div(fx.strip-unit($px), fx.strip-unit($base))) * 100vw;
+
+	@return $value;
+}

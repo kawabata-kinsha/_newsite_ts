@@ -15,7 +15,7 @@ body {
 body {
 	position: relative;
 	font-family: 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-	font-size: 3.5vw;
+	font-size: fx.vw(12px, 2000px);
 	line-height: 1;
 	color: #22252c;
 	background-color: #fff;
