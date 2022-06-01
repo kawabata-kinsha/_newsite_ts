@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <title><?php echo $title; ?></title>
@@ -34,4 +38,32 @@
 <!-- css -->
 <link rel="stylesheet" href="<?php echo $root_folder; ?>/assets/css/style.css?ver=<?php echo $cssVer;?>" />
 
-<?php include("ga.php"); ?>
+</head>
+
+
+<body class="<?php echo $isCommon ? "category--common " : ""; ?>category--<?php echo $categoryName; ?> category--<?php echo $categoryName; ?>__<?php echo $pageName; ?>">
+
+
+	<div class="loading">
+		<div class="sk-fading-circle">
+		<div class="sk-circle1 sk-circle"></div>
+		<div class="sk-circle2 sk-circle"></div>
+		<div class="sk-circle3 sk-circle"></div>
+		<div class="sk-circle4 sk-circle"></div>
+		<div class="sk-circle5 sk-circle"></div>
+		<div class="sk-circle6 sk-circle"></div>
+		<div class="sk-circle7 sk-circle"></div>
+		<div class="sk-circle8 sk-circle"></div>
+		<div class="sk-circle9 sk-circle"></div>
+		<div class="sk-circle10 sk-circle"></div>
+		<div class="sk-circle11 sk-circle"></div>
+		<div class="sk-circle12 sk-circle"></div>
+		</div>
+	</div>
+	<!-- /loading -->
+
+
+<div class="wrap">
+
+
+
