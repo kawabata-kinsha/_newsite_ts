@@ -47,13 +47,13 @@ class Pagenation {
 		return $currentPage;
 	}
 	public function getListStart(){
-		return 1 + 10 * ($this -> getCurrentPage() - 1);
+		return 1 + $this -> perPage * ($this -> getCurrentPage() - 1);
 	}
 	public function getListEnd(){
 		if($this -> getCurrentPage() == $this -> getTotalPage()){
 			$list_end = $this -> getNewsLength() + 1;
 		}else{
-			$list_end = 1 + 10 * $this -> getCurrentPage();
+			$list_end = 1 + $this -> perPage * $this -> getCurrentPage();
 		}
 		return $list_end;
 	}
