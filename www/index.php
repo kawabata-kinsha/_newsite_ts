@@ -1,8 +1,8 @@
 <?php
 ini_set('display_errors', "On");
 
-include(dirname(__FILE__)."/php/config.php");
-include(dirname(__FILE__)."/php/functions.php");
+include(dirname(__FILE__)."/php/_config.php");
+include(dirname(__FILE__)."/php/_functions.php");
 
 $title = $siteTitle . '';
 $pageDescription = $siteDescription;
@@ -12,11 +12,11 @@ $pageName = "";
 
 
 ?>
-<?php include("modules/header.php"); ?>
+<?php include("modules/_header.php"); ?>
 
 
 
 
 
 
-<?php include("modules/footer.php"); ?>
+<?php include("modules/_footer.php"); ?>
