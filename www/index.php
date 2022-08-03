@@ -10,6 +10,8 @@ $isCommon = false;
 $categoryName = "top";
 $pageName = "";
 
+include(dirname(__FILE__)."/php/_variables.php");
+$isCommon = false;
 
 ?>
 <?php include("modules/_header.php"); ?>
