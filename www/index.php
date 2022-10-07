@@ -6,7 +6,6 @@ include(dirname(__FILE__)."/php/_functions.php");
 
 $title = $siteTitle . '';
 $pageDescription = $siteDescription;
-$isCommon = false;
 $categoryName = "top";
 $pageName = "";
 

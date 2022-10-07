@@ -41,7 +41,7 @@
 </head>
 
 
-<body class="<?php echo $isCommon ? "category--common " : ""; ?>category--<?php echo $categoryName; ?> category--<?php echo $categoryName; ?>__<?php echo $pageName; ?>">
+<body class="<?php echo $isCommon ? "category--common " : ""; ?>category--<?php echo $categoryName; ?> page--<?php echo $categoryName; ?>__<?php echo $pageName; ?>">
 
 
 	<div class="loading">
