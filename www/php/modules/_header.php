@@ -10,19 +10,19 @@
 <meta name="format-detection" content="telephone=no">
 
 <!-- ogp -->
-<meta content="<?php echo $siteTitle; ?>" property="og:title" />
+<meta content="<?php echo $title; ?>" property="og:title" />
 <meta content="website" property="og:type" />
 <meta content="<?php echo (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"]; ?><?php echo $rootImg; ?>/common/ogp.png" property="og:image" />
-<meta content="<?php echo $siteDescription; ?>" property="og:description" />
-<meta content="" property="og:url" />
+<meta content="<?php echo $pageDescription; ?>" property="og:description" />
+<meta content="<?php echo (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER['REQUEST_URI']; ?>" property="og:url" />
 <meta content="<?php echo $siteTitle; ?>" property="og:site_name" />
 
 <!-- twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta content="<?php echo $twitterId; ?>" name="twitter:site" />
-<meta property="twitter:url" content="<?php echo (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"]; ?><?php echo $root; ?>/" />
-<meta property="twitter:title" content="<?php echo $siteTitle; ?>" />
-<meta property="twitter:description" content="<?php echo $siteDescription; ?>" />
+<meta property="twitter:url" content="<?php echo (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER['REQUEST_URI']; ?>" />
+<meta property="twitter:title" content="<?php echo $title; ?>" />
+<meta property="twitter:description" content="<?php echo $pageDescription; ?>" />
 <meta property="twitter:image" content="<?php echo (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"]; ?><?php echo $rootImg; ?>/common/ogp.png" />
 
 <!-- icon -->
