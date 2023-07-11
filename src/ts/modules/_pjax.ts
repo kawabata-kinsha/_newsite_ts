@@ -44,7 +44,7 @@ export class Pjax {
 			history.pushState(this.pushStateObj(path), title, path);
 			setTimeout(() => {
 				this.ajax(path);
-			}, this.delaytime);	
+			}, this.delaytime);
 		}
 	}
 
@@ -56,14 +56,18 @@ export class Pjax {
 	}
 
 	ajax(path: string){
+		// $(this.target).load(path + ' .wrap');
 		const request = new XMLHttpRequest();
-		request.overrideMimeType("text/xml");
-		request.open('GET', path);
+		request.responseType = 'document';
+		request.open('GET', path, true);
 		request.onload = () => {
-			const nextTitle = request.response.match(/<title>[\s\S]*?<\/title>/i)[0].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
+			const nextTitle = request.responseXML.querySelector('title').innerText;
+			const bodyClassList = request.responseXML.querySelector('body').classList['value'];
 			const nextContents = request.responseXML.querySelector(this.target)
+			console.log(bodyClassList);
 			document.title = nextTitle;
 			document.querySelector(this.target).innerHTML = nextContents.innerHTML;
+			document.querySelector('body').setAttribute('class', bodyClassList);
 
 			this.afterFetch();
         }
@@ -85,9 +89,9 @@ export class Pjax {
 	}
 
 	onLoad(){}
-	
+
 	beforeFetch(){}
 
 	afterFetch(){}
-	
+
 }
