@@ -62,17 +62,6 @@ export class Pjax {
 			this.changeContents(html);
 			this.afterFetch();
 		});
-		// const request = new XMLHttpRequest();
-		// request.responseType = 'document';
-		// request.open('GET', path, true);
-		// request.onload = () => {
-		// 	const html = request.responseXML;
-		// 	this.changeTitle(html);
-		// 	this.changeBodyClass(html);
-		// 	this.changeContents(html);
-		// 	this.afterFetch();
-        // }
-		// request.send();
 	}
 
 	private pushStateObj(path: string){
@@ -81,7 +70,7 @@ export class Pjax {
 	}
 
 	private getTarget(e: any){
-		var state = e.state;
+		const state = e.state;
 		return state.path;
 	}
 
